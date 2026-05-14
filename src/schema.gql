@@ -1,0 +1,87 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Represents a character in the system"""
+type CharacterEntity {
+  """Creation timestamp"""
+  createdAt: DateTime!
+
+  """Brief description of the character"""
+  description: String!
+
+  """Gender of the character"""
+  gender: CharacterGender!
+
+  """Unique identifier"""
+  id: Int!
+
+  """URL to the character image"""
+  image: String!
+
+  """Full name of the character"""
+  name: String!
+
+  """Living status of the character"""
+  status: CharacterStatus!
+
+  """Last update timestamp"""
+  updatedAt: DateTime!
+}
+
+"""The gender of a character"""
+enum CharacterGender {
+  """Female character"""
+  FEMALE
+
+  """Male character"""
+  MALE
+
+  """Gender is unknown"""
+  UNKNOWN
+}
+
+"""The living status of a character"""
+enum CharacterStatus {
+  """The character is alive"""
+  ALIVE
+
+  """The character is dead"""
+  DEAD
+
+  """The character status is unknown"""
+  UNKNOWN
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+"""Filters for querying characters"""
+input FilterCharactersInput {
+  """Filter by character gender"""
+  gender: CharacterGender
+
+  """Search term applied to name and description fields"""
+  search: String
+
+  """Filter by character status"""
+  status: CharacterStatus
+}
+
+type Query {
+  """Retrieve a single character by its unique ID"""
+  character(
+    """Character ID"""
+    id: Int!
+  ): CharacterEntity!
+
+  """
+  Retrieve a list of characters with optional filtering by status, gender, and a text search on name/description
+  """
+  characters(
+    """Optional filter criteria"""
+    filters: FilterCharactersInput = {}
+  ): [CharacterEntity!]!
+}
