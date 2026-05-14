@@ -131,7 +131,7 @@ model Character {
 ## 1. GraphQL Playground
 
 ```
-http://localhost:3000/graphql
+http://localhost:3001/graphql
 ```
 
 ## 2. Prisma Studio
@@ -158,10 +158,3 @@ pnpm prisma studio
 Backend built with NestJS + GraphQL + Prisma ORM as a full-stack technical task.
 
 ---
-```
-
----
-
-If you want, I can next:
-- make it **GitHub-ready with badges + screenshots section**
-- or help you write a **senior-level architecture explanation (for interviews)**
